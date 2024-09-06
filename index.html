@@ -373,7 +373,7 @@
               <ul>
                 <li><b>Programming Languages:</b> Python, R, SQL, Java, C++, Node.js, React.js</li>
                 <li><b>Machine Learning:</b> TensorFlow, PyTorch, Scikit-learn, Neural Networks</li>
-                <li><b>NLP / LLMs:</b> Hugging Face, Transformers, Spacy, Langchain, Ollama</li>
+                <li><b>NLP / LLMs:</b> Hugging Face, Transformers, Spacy, Langchain, RAG, APIs</li>
                 <li><b>Cloud Platforms:</b> Azure, GCP, Docker, Git, CI/CD</li>
                 <li><b>Data Analysis & BI:</b> Pandas, NumPy, Tableau, Excel</li>
               </ul>
@@ -495,7 +495,7 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="https://api.web3forms.com/submit" method="post" role="form" class="php-email-form">
+            <form action="https://api.web3forms.com/submit" method="post" role="form" class="php-email-form email-form">
               <input type="hidden" name="access_key" value="5aebb5ee-5e4c-441a-9731-dbda0921ab2c">
               <div class="row">
                 <div class="form-group col-md-6">
@@ -516,10 +516,10 @@
                 <textarea class="form-control" name="message" rows="10" required></textarea>
               </div>
               <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
+                <div class="loading" style="display: none;">Loading</div>
+                <div class="error-message" style="display: none;"></div>
+                <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
+              </div>              
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
           </div>
@@ -579,7 +579,7 @@
     // Create neurons
     const neuronCount = 100;
     const neurons = [];
-    const neuronGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+    const neuronGeometry = new THREE.SphereGeometry(0.2, 32, 32);
     const neuronMaterial = new THREE.MeshPhongMaterial({
       color: 0x00ffff,
       emissive: 0x0088ff,

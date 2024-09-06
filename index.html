@@ -579,7 +579,7 @@
     // Create neurons
     const neuronCount = 100;
     const neurons = [];
-    const neuronGeometry = new THREE.SphereGeometry(0.2, 32, 32);
+    const neuronGeometry = new THREE.SphereGeometry(0.5, 32, 32);
     const neuronMaterial = new THREE.MeshPhongMaterial({
       color: 0x00ffff,
       emissive: 0x0088ff,
@@ -618,9 +618,9 @@
     for (let i = 0; i < neuronCount; i++) {
       const neuron = new THREE.Mesh(neuronGeometry, neuronMaterial.clone());
       neuron.position.set(
-        (Math.random() - 0.5) * 5,
-        (Math.random() - 0.5) * 5,
-        (Math.random() - 0.5) * 5
+        (Math.random() - 0.5) * 6,
+        (Math.random() - 0.5) * 6,
+        (Math.random() - 0.5) * 6
       );
       neuron.scale.setScalar(Math.random() * 0.5 + 0.5);
       neuron.userData = { 

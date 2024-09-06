@@ -26,6 +26,8 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
 
   <!-- =======================================================
   * Template Name: iPortfolio
@@ -81,10 +83,15 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
-      <h1>Hello World!</h1>
-      <p>I'm <span class="typed" data-typed-items="Naman Pandey, a MSc AI Postgraduate, a Software Developer, an AI Engineer, a Data Scientist, a part-time Chef"></span> currently based in London city.</p>
+      <h1>Naman Pandey</h1>
+      <p class="lead">Versatile Data / AI Professional with Cross-Industry Expertise</p>
+      <p>I'm a <span class="typed" data-typed-items="Data Scientist in the Healthcare domain, ML Engineer specialized in Open-Source LLMs, former Research Assistant at a top UK University, former Machine Vision and Process Analysis Engineer, former JAVA Software Developer in the Finance Domain"></span></p>
+    
     </div>
-  </section><!-- End Hero -->
+    <div class="hero-bg">
+      <canvas id="heroCanvas"></canvas>
+    </div>
+  </section>
 
   <main id="main">
 
@@ -104,14 +111,14 @@
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>Dynamic Software Engineer & AI Enthusiast</h3>
             <p class="fst-italic">
-              With a master's degree in Artificial Intelligence and over 6 years of diverse cross-industry professional experience, I've honed a robust skill set encompassing proficiency in programming languages, expertise in AI and data analysis tools, and adept project management abilities. From collaborating internationally to adapting to ever-evolving technologies, my career journey has been a testament to my adaptability and passion for innovation. I'm dedicated to pushing the boundaries of what's possible in the world of technology. Let's connect and explore how we can innovate together.
+              I am an Artificial Intelligence Engineer / Data Scientist with a master's degree in AI and 8 years of cross-industry experience. My expertise lies in leading technical projects and developing cutting-edge machine learning solutions, with a strong focus on building scalable ML pipelines, implementing advanced models in NLP, Computer Vision, and Healthcare. Passionate about pushing the boundaries of AI, I am committed to driving innovation in every project I undertake.
             </p>
             <div class="row">
               <div class="col-lg-6">
                 <ul>
                   <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>14 Oct 1995</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span><a href="nmn-pandey.github.io">nmn-pandey.github.io</a></span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+44 7307658109</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+44 7307658109 / +91-7088696089</span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>London, UK</span></li>
                 </ul>
               </div>
@@ -125,7 +132,7 @@
               </div>
             </div>
             <p>
-              I'm genuinely appreciative of your interest in getting to know me better. As you delve deeper into my journey, you'll discover how my experiences, from collaborating internationally to adapting to ever-evolving technologies, have shaped my adaptability and fueled my passion for innovation.
+              I'm genuinely appreciative of your interest in getting to know me better. With a strong foundation in AI and a passion for innovation, I am constantly seeking new challenges where I can apply my skills to create impactful solutions. Let's collaborate and make something extraordinary.
             </p>
           </div>
         </div>
@@ -133,101 +140,136 @@
       </div>
     </section><!-- End About Section -->
 
+<!-- ======= Skills Section ======= -->
+<section id="skills" class="skills section-bg">
+  <div class="container">
 
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container">
+    <div class="section-title">
+      <h2>Skills</h2>
+      <p>Welcome to the skills section, where I showcase my proficiency and expertise in various areas of technology. From programming languages to AI and data analysis tools, I bring a diverse skill set honed through academic study and hands-on experience. Let's explore the skills that make me uniquely qualified to tackle challenges and drive innovation.</p>
+    </div>
 
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p>Welcome to the skills section, where I showcase my proficiency and expertise in various areas of technology. From programming languages to AI and data analysis tools, I bring a diverse skill set honed through academic study and hands-on experience. Let's explore the skills that make me uniquely qualified to tackle challenges and drive innovation.</p>
+    <div class="row skills-content">
+      <div class="col-lg-4" data-aos="fade-up">
+        <div class="progress">
+          <span class="skill">Python / R<i class="val">100%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        
+        <div class="progress">
+          <span class="skill">SQL / NoSQL <i class="val">90%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
         </div>
 
-        <div class="row skills-content">
-
-          <div class="col-lg-6" data-aos="fade-up">
-
-            <div class="progress">
-              <span class="skill">Python <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">R <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">SQL / NoSQL <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Tableau <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-            
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-
+        <div class="progress">
+          <span class="skill">Data Analysis (Pandas, NumPy) <i class="val">90%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
+        </div>
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            
-            <div class="progress">
-              <span class="skill">Machine Learning <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Deep Learning <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Java <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">C/C++ <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Photoshop <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
+        <div class="progress">
+          <span class="skill">Cloud Platforms (Azure, GCP) <i class="val">85%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
+        </div>
 
+        <div class="progress">
+          <span class="skill">DevOps (CI/CD, Docker) <i class="val">80%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
         </div>
 
       </div>
-    </section><!-- End Skills Section -->
+
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="progress">
+          <span class="skill">TensorFlow / PyTorch <i class="val">95%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill">Deep / Machine Learning <i class="val">90%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill">Natural Language Processing (NLP)<i class="val">85%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill">Generative AI / LLMs <i class="val">85%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill">Computer Vision <i class="val">85%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="progress">
+          <span class="skill">Project Leadership <i class="val">95%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill">Communication & Teamwork <i class="val">90%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill">Problem Solving <i class="val">90%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill">Adaptability <i class="val">85%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+
+        <div class="progress">
+          <span class="skill">Time Management <i class="val">90%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Skills Section -->
+
 
 
     <!-- ======= Technologies Section ======= -->
@@ -246,8 +288,8 @@
               <!--<i class="bi bi-cpu"></i>-->
               <h3>AI / ML Engineer</h3>
               <ul>
-                <li>Machine Learning (ML)</li>
-                <li>Deep Learning (DL)</li>
+                <li>Machine Learning</li>
+                <li>Deep Learning</li>
                 <li>Natural Language Processing (NLP)</li>
                 <li>TensorFlow, PyTorch, Keras</li>
               </ul>
@@ -306,47 +348,90 @@
 
         <div class="section-title">
           <h2>Resume</h2>
-          <p>Versatile and analytical software engineer, eligible to work unrestricted in the UK and India, with over 6 years of diverse professional experience and a recent Master of Science in Artificial Intelligence 'With Distinction' from Brunel University. Eager to apply this blend of practical experience and advanced technical education to the next role in my career path. Aiming to leverage deep knowledge in AI, Data Science, Databases (SQL / NoSQL), and BI tools of Tableau and Excel, alongside a proven track record in programming and project leadership, to contribute to innovative solutions and drive success in AI Engineer / ML Engineer / Data Analyst / Data Scientist roles.</p>
+          <p>Versatile and analytical software engineer, eligible to work unrestricted in the UK and India, with over 8 years of diverse professional experience and a recent Master of Science in Artificial Intelligence 'With Distinction' from Brunel University. Eager to apply this blend of practical experience and advanced technical education to the next role in my career path. Aiming to leverage deep knowledge in AI, Data Science, Databases (SQL / NoSQL), and BI tools of Tableau and Excel, alongside a proven track record in programming and project leadership, to contribute to innovative solutions and drive success in AI Engineer / ML Engineer / Data Analyst / Data Scientist roles.</p>
         </div>
 
         <div class="row">
           <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Summary</h3>
-            <div class="resume-item pb-0">
-              <h4>Naman Pandey</h4>
-              <p><em>Versatile and analytical software engineer, eligible to work unrestricted in the UK and India, with over 6 years of diverse professional experience and a recent Master of Science in Artificial Intelligence 'With Distinction' from Brunel University.</em></p>
-              <ul>
-                <li>London, UK / Delhi, India</li>
-                <li>+44-7307658109 / +91-7088696089</li>
-                <li>namanp95@gmail.com</li>
-              </ul>
-            </div>
-
             <h3 class="resume-title">Education</h3>
             <div class="resume-item">
               <h4>Master of Science (M.Sc.) in Artificial Intelligence</h4>
               <h5>2022 - 2023</h5>
               <p><em>Brunel University, London, UK</em></p>
               <p><b>Grade:</b> Distinction</p>
-              <p><b>Coursework:</b> Quantitative Data Analysis, Critical Analysis of Modern Data, Data Visualisation, Research Project Management, Ethics and Governance of Digital Systems, Machine Learning, Artificial Intelligence, Deep Learning, Predictive Data Analytics</p>
-              <p>Secured A grades across all modules.</p>
+              <p><b>Coursework:</b> AI, Machine Learning, Deep Learning, Project Management, Digital Ethics, Data Governance</p>
             </div>
             <div class="resume-item">
-              <h4>Bachelor of Technology (B.Tech.) in Computer Science and Engineering</h4>
+              <h4>Bachelor of Technology (B.Tech.) in Computer Science</h4>
               <h5>2012 - 2016</h5>
               <p><em>Birla Institute of Applied Sciences, Bhimtal, India</em></p>
               <p><b>Grade:</b> Merit</p>
             </div>
+
+            <h3 class="resume-title">Technical Skills</h3>
+            <div class="resume-item pb-0">
+              <ul>
+                <li><b>Programming Languages:</b> Python, R, SQL, Java, C++, Node.js, React.js</li>
+                <li><b>Machine Learning:</b> TensorFlow, PyTorch, Scikit-learn, Neural Networks</li>
+                <li><b>NLP / LLMs:</b> Hugging Face, Transformers, Spacy, Langchain, Ollama</li>
+                <li><b>Cloud Platforms:</b> Azure, GCP, Docker, Git, CI/CD</li>
+                <li><b>Data Analysis & BI:</b> Pandas, NumPy, Tableau, Excel</li>
+              </ul>
+            </div>
+
+            <h3 class="resume-title">Certifications</h3>
+            <div class="resume-item">
+              <ul>
+                <li>Six Sigma Green Belt - LinkedIn Learning</li>
+                <li>Google Cloud Computing Foundations - Google</li>
+                <li>Data Analytics Essentials - Cisco</li>
+                <li>Career Essentials in Generative AI - Microsoft</li>
+              </ul>
+            </div>
+
+            <h3 class="resume-title">Notable Projects</h3>
+            <div class="resume-item">
+              <h4>Brain Tumour Segmentation in 3D MRI Images</h4>
+              <p><em>Feb 2023 - Sep 2023</em></p>
+              <ul>
+                <li>Developed advanced deep learning models for 3D brain tumour segmentation, improving sensitivity by 4% over benchmarks.</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>Dialogue Insights Generator</h4>
+              <p><em>Jan 2024 - Mar 2024</em></p>
+              <ul>
+                <li>Created a web app leveraging GPT-3.5 and WhisperX to analyze conversational data and generate insights on speaker sentiment and psychological profiles.</li>
+              </ul>
+            </div>
           </div>
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Relevant Experience</h3>
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              <h4>Data Scientist - R&D</h4>
+              <h5>Apr 2024 - Present</h5>
+              <p><em>Blatchford Mobility, UK</em></p>
+              <ul>
+                <li>Developed ML models for Gait Phase Identification and abnormal gait detection using sensor data.</li>
+                <li>Led a research study in Norway, analyzing patient gait data to personalize treatment recommendations.</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>Machine Learning Engineer</h4>
+              <h5>Apr 2024 - Aug 2024</h5>
+              <p><em>Mercor, USA (Remote)</em></p>
+              <ul>
+                <li>Optimized performance for LLaMA models on GPUs, contributing to the world's first transformer ASIC project at Etched.</li>
+                <li>Developed benchmarking scripts and consumer-friendly documentation for reproducibility.</li>
+              </ul>
+            </div>
             <div class="resume-item">
               <h4>Research Assistant</h4>
               <h5>Jul 2023 - Aug 2023</h5>
               <p><em>Brunel University, UK</em></p>
               <ul>
-                <li>Performed critical analysis of Language Model Models (LLMs) in academic settings.</li>
-                <li>Co-authored a concise, data-driven report on their impacts and applications, augmented with visualization.</li>
+                <li>Developed a chatbot using GPT-3 APIs to assist with academic queries.</li>
+                <li>Analyzed the impact of LLMs like ChatGPT on student assessments, co-authoring a report with data-driven insights.</li>
               </ul>
             </div>
             <div class="resume-item">
@@ -354,10 +439,10 @@
               <h5>May 2017 - Aug 2022</h5>
               <p><em>Pressco Technology Inc., USA</em></p>
               <ul>
-                <li>Collaborated internationally and managed the deployment of Machine Vision projects within the food and beverage industry.</li>
-                <li>Focused on data collection, generating reports, client training, and system audits.</li>
+                <li>Led installations and integrations of machine vision solutions across 50+ projects.</li>
+                <li>Trained clients on system operations and conducted audits to improve performance.</li>
               </ul>
-            </div>
+            </div>        
             <div class="resume-item">
               <h4>Software Developer</h4>
               <h5>Jul 2016 - May 2017</h5>
@@ -372,256 +457,6 @@
 
       </div>
     </section><!-- End Resume Section -->
-
-
-    <!-- ======= Portfolio Section ======= 
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row" data-aos="fade-up">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-    End Portfolio Section -->
-
-    <!-- ======= Services Section ======= 
-    <section id="services" class="services">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Services</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bi bi-briefcase"></i></div>
-            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="">Dolor Sitema</a></h4>
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bi bi-bar-chart"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="bi bi-binoculars"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon"><i class="bi bi-brightness-high"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    End Services Section -->
-
-    <!-- ======= Testimonials Section ======= 
-    <section id="testimonials" class="testimonials section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Testimonials</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
-            </div>
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-    </section>
-     End Testimonials Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -709,7 +544,7 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
-        Template by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Template modified from <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
   </footer><!-- End  Footer -->
@@ -729,6 +564,245 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    // Set up the scene, camera, and renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 0.1, 100);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('heroCanvas'), alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    // Create a group to hold our objects
+    const brainGroup = new THREE.Group();
+    scene.add(brainGroup);
+
+    // Create neurons
+    const neuronCount = 100;
+    const neurons = [];
+    const neuronGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+    const neuronMaterial = new THREE.MeshPhongMaterial({
+      color: 0x00ffff,
+      emissive: 0x0088ff,
+      shininess: 100,
+      transparent: true,
+      opacity: 1
+    });
+
+    // Aura material
+    const auraMaterial = new THREE.ShaderMaterial({
+      uniforms: {
+        color: { value: new THREE.Color(0xffff00) },
+        time: { value: 0 },
+      },
+      vertexShader: `
+        varying vec3 vNormal;
+        void main() {
+          vNormal = normalize(normalMatrix * normal);
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform vec3 color;
+        uniform float time;
+        varying vec3 vNormal;
+        void main() {
+          float intensity = pow(0.7 - dot(vNormal, vec3(0, 0, 1.0)), 2.0);
+          gl_FragColor = vec4(color, intensity * (0.5 + 0.5 * sin(time * 10.0)));
+        }
+      `,
+      side: THREE.BackSide,
+      blending: THREE.AdditiveBlending,
+      transparent: true
+    });
+
+    for (let i = 0; i < neuronCount; i++) {
+      const neuron = new THREE.Mesh(neuronGeometry, neuronMaterial.clone());
+      neuron.position.set(
+        (Math.random() - 0.5) * 5,
+        (Math.random() - 0.5) * 5,
+        (Math.random() - 0.5) * 5
+      );
+      neuron.scale.setScalar(Math.random() * 0.5 + 0.5);
+      neuron.userData = { 
+        activated: false, 
+        activationTime: 0,
+        aura: new THREE.Mesh(new THREE.SphereGeometry(0.075, 20, 20), auraMaterial.clone())
+      };
+      neuron.userData.aura.scale.setScalar(1);
+      neuron.userData.aura.visible = false;
+      neuron.add(neuron.userData.aura);
+      brainGroup.add(neuron);
+      neurons.push(neuron);
+    }
+
+
+    // Create synapse particles
+    const synapseParticles = [];
+    const synapseGeometry = new THREE.SphereGeometry(0.01, 8, 8);
+    const synapseMaterial = new THREE.MeshBasicMaterial({
+      color: 0xffffff,
+      transparent: true,
+      opacity: 0.7
+    });
+
+    // Lights
+    const ambientLight = new THREE.AmbientLight(0x404040);
+    scene.add(ambientLight);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    directionalLight.position.set(1, 1, 1);
+    scene.add(directionalLight);
+
+    // Position camera
+    camera.position.set(0, 0, 10);
+
+    // Mouse interaction
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    // Animation loop
+    let time = 0;
+    function animate() {
+      requestAnimationFrame(animate);
+      time += 0.01;
+
+      // Rotate the brain group based on mouse position
+      brainGroup.rotation.y = mouse.x * 0.5;
+      brainGroup.rotation.x = -mouse.y * 0.5;
+
+      // Pulsate neurons
+      neurons.forEach((neuron, index) => {
+        const scale = 1 + Math.sin(time * 2 + index * 0.1) * 0.2;
+        neuron.material.emissive.setHex(0x00ffff);
+        neuron.scale.setScalar(scale);
+        neuron.material.opacity = 0.5 + Math.sin(time * 2 + index * 0.1) * 0.2;
+
+        if (neuron.userData.activated) {
+          const elapsedTime = time - neuron.userData.activationTime;
+          if (elapsedTime < 0.25) {
+            // Fade in
+            neuron.material.emissive.setHex(0x00ffff);
+            neuron.material.emissiveIntensity = elapsedTime * 4;
+            neuron.userData.aura.material.uniforms.color.value.setHex(0x00ffff);
+            neuron.userData.aura.material.uniforms.time.value = time;
+            neuron.userData.aura.visible = true;
+            neuron.userData.aura.material.opacity = elapsedTime * 4;
+          } else if (elapsedTime < 0.75) {
+            // Stay on
+            neuron.material.emissive.setHex(0x00ffff);
+            neuron.material.emissiveIntensity = 1;
+            neuron.userData.aura.visible = true;
+            neuron.userData.aura.material.opacity = 1;
+          } else if (elapsedTime < 1) {
+            // Fade out
+            const fadeOutProgress = (elapsedTime - 0.75) * 4;
+            neuron.material.emissive.setHex(0x00ffff);
+            neuron.material.emissiveIntensity = 1 - fadeOutProgress;
+            neuron.userData.aura.material.opacity = 1 - fadeOutProgress;
+          } else {
+            // Deactivate
+            neuron.userData.activated = false;
+            neuron.userData.aura.visible = false;
+          }
+        } else {
+          neuron.material.emissive.setHex(0x0088ff);
+          neuron.material.emissiveIntensity = 1;
+        }
+      });
+
+      // Update synapse particles
+      synapseParticles.forEach((particle, index) => {
+        particle.userData.t += 0.02;
+        if (particle.userData.t > 1) {
+          brainGroup.remove(particle);
+          synapseParticles.splice(index, 1);
+        } else {
+          const { start, end } = particle.userData;
+          particle.position.lerpVectors(start, end, particle.userData.t);
+        }
+      });
+
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Mouse move event
+    window.addEventListener('mousemove', (event) => {
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(neurons);
+
+      if (intersects.length > 0) {
+        const intersectedNeuron = intersects[0].object;
+        if (!intersectedNeuron.userData.activated) {
+          intersectedNeuron.userData.activated = true;
+          intersectedNeuron.userData.activationTime = time;
+          intersectedNeuron.scale.setScalar(2);
+        }
+      }
+    });
+
+    // Scroll event
+    let scrollY = 0;
+    window.addEventListener('scroll', () => {
+      scrollY = window.scrollY;
+      camera.position.z = 10 - scrollY * 0.01;
+    });
+
+    // Simulated ML process with traveling synapses
+    function simulateMLProcess() {
+      const duration = 2000; // 2 seconds
+      const activationSequence = [];
+
+      for (let i = 0; i < 20; i++) {
+        activationSequence.push(Math.floor(Math.random() * neuronCount));
+      }
+
+      let startTime = null;
+
+      function animate(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const elapsedTime = currentTime - startTime;
+
+        if (elapsedTime < duration) {
+          const progress = elapsedTime / duration;
+          const activeNeuronIndex = Math.floor(progress * activationSequence.length);
+
+          const start = neurons[activationSequence[activeNeuronIndex]];
+          const end = neurons[activationSequence[(activeNeuronIndex + 1) % activationSequence.length]];
+
+          const synapseParticle = new THREE.Mesh(synapseGeometry, synapseMaterial.clone());
+          synapseParticle.position.copy(start.position);
+          synapseParticle.userData = { start: start.position, end: end.position, t: 0 };
+          brainGroup.add(synapseParticle);
+          synapseParticles.push(synapseParticle);
+
+          start.userData.activated = true;
+          start.scale.setScalar(2);
+
+          requestAnimationFrame(animate);
+        } else {
+          neurons.forEach(neuron => {
+            neuron.userData.activated = false;
+            neuron.scale.setScalar(1);
+          });
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    // Trigger ML process simulation every 5 seconds
+    setInterval(simulateMLProcess, 2000);
+  </script>
 
 </body>
 

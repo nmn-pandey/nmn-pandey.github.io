@@ -63,18 +63,23 @@
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
           <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Skills</span></a></li>
           <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <!--
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
-          -->
+          <li><a href="#projects" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Projects</span></a></li>
           <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
           <li>
             <a href="/assets/naman_pandey.pdf" download="Naman_Pandey_Resume.pdf" class="btn btn-primary" style="pointer-events: auto;">
               <i class="bx bx-download"></i>
-              <span>Download Resume</span>
+              <span style="color: white;">Download Resume</span>
             </a>
-          </li>          
-          
+          </li>
+          <li class="games-toggle">
+            <div class="toggle-switch">
+              <input type="checkbox" id="gamesToggle" class="toggle-input">
+              <label for="gamesToggle" class="toggle-label">
+                <i class="bx bx-game"></i>
+                <span class="games-text">Games</span>
+              </label>
+            </div>
+          </li>
         </ul>
       </nav><!-- .nav-menu -->
     </div>
@@ -89,8 +94,14 @@
     
     </div>
     <div class="hero-bg">
-      <canvas id="heroCanvas"></canvas>
+      <div class="parallax-layer parallax-layer-1"></div>
+      <div class="parallax-layer parallax-layer-2"></div>
+      <div class="parallax-layer parallax-layer-3"></div>
+      <canvas id="heroCanvas" class="hidden"></canvas>
     </div>
+    <button id="bgToggle" class="bg-toggle">
+      <i class="bx bx-rotate-left"></i>
+    </button>
   </section>
 
   <main id="main">
@@ -458,6 +469,201 @@
       </div>
     </section><!-- End Resume Section -->
 
+    <!-- ======= Projects Section ======= -->
+    <section id="projects" class="projects">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Projects</h2>
+          <p>Here are some of my notable projects that showcase my technical skills and expertise in AI, data science, and software development.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 mb-5" data-aos="fade-up">
+            <div class="project-item">
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="project-img-container">
+                    <img src="assets/img/projects/brain-tumor.jpg" class="img-fluid" alt="Brain Tumor Segmentation">
+                  </div>
+                </div>
+                <div class="col-lg-9 pt-4 pt-lg-0">
+                  <h3>Enhancing Brain Tumour Segmentation in Multimodal MRI Scans</h3>
+                  <p><em><a href="https://github.com/nmn-pandey/brain-tumour-segmentation" target="_blank">View Project on GitHub</a></em></p>
+                  <p>During my Master's dissertation, I focused on developing sophisticated methods for the automated segmentation of brain tumors using multimodal MRI scans, tackling significant challenges in the field of medical image analysis.</p>
+                  <p>My work emphasized the integration of cutting-edge techniques into convolutional neural network (CNN) architectures, such as attention mechanisms, multi-scale deep supervision, and multi-objective loss functions. Notably, incorporating Swin-Transformers into these architectures greatly enhanced the model's capacity to understand the global context within MRI scans. Utilizing the Brain Tumor Segmentation (BraTS) 2023 dataset, which includes various MRI types and expert annotations, I constructed three incremental 3D CNN architectures to explore different technique combinations, with the deep supervision CNN model achieving an impressive mean Dice score of 0.795.</p>
+                </div>
+              </div>
+              <div class="expand-overlay">
+                <button class="expand-button">Read More <i class="bi bi-chevron-down"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12 mb-5" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-item">
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="project-img-container">
+                    <img src="assets/img/projects/dialogue-insights.jpg" class="img-fluid" alt="Dialogue Insights Generator">
+                  </div>
+                </div>
+                <div class="col-lg-9 pt-4 pt-lg-0">
+                  <h3>Dialogue Insights Generator: An Innovative NLP Solution</h3>
+                  <p><em><a href="https://github.com/nmn-pandey/dialogue-analyser" target="_blank">View Project on GitHub</a></em></p>
+                  <p>Developed an innovative web application using Flask and Python, leveraging state-of-the-art NLP techniques, Generative AI models (GPT-3.5-turbo), proprietary diarization pipelines (Deepgram, WhisperX) from Huggingface, and cloud deployment (using Docker and GCP) to provide comprehensive insights from conversational data.</p>
+                  <p>The solution transcribes audio dialogues, analyses conversation text, and generates personalized sentiment and psychological profiles for each speaker, while also assessing speaker attitudes and recommending strategies for future interactions.</p>
+                </div>
+              </div>
+              <div class="expand-overlay">
+                <button class="expand-button">Read More <i class="bi bi-chevron-down"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12 mb-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-item">
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="project-img-container">
+                    <img src="assets/img/projects/ceo-diversity.jpg" class="img-fluid" alt="CEO Diversity Dashboard">
+                  </div>
+                </div>
+                <div class="col-lg-9 pt-4 pt-lg-0">
+                  <h3>Fortune 1000 CEO Diversity and Performance Dashboard</h3>
+                  <p><em><a href="https://public.tableau.com/app/profile/naman.pandey/viz/Fortune1000Analysis_17064900121200/FinalDashboardClust-Interact2" target="_blank">View Dashboard on Tableau Public</a></em></p>
+                  <p>Developed an interactive Tableau dashboard to analyze CEO gender diversity and financial performance trends of Fortune 1000 companies from 2019-2021. This comprehensive visualization tool identifies insights into gender disparities across sectors and correlations between leadership demographics and business growth.</p>
+                  <p>The dashboard provides valuable insights for investors, business leaders, and diversity advocates, highlighting the business case for diversity in corporate leadership.</p>
+                </div>
+              </div>
+              <div class="expand-overlay">
+                <button class="expand-button">Read More <i class="bi bi-chevron-down"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12 mb-5" data-aos="fade-up" data-aos-delay="300">
+            <div class="project-item">
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="project-img-container">
+                    <img src="assets/img/projects/student-dropout.jpg" class="img-fluid" alt="Student Dropout Prediction">
+                  </div>
+                </div>
+                <div class="col-lg-9 pt-4 pt-lg-0">
+                  <h3>Scholarship Prediction and Early Identification of At-Risk Students</h3>
+                  <p><em><a href="https://github.com/nmn-pandey/student-dropout-prediction" target="_blank">View Project on GitHub</a></em></p>
+                  <p>Designed and implemented ML and DL models to predict student dropout and academic success using demographic, socioeconomic, and academic data. Utilized Python and R with libraries like Pandas, Scikit-learn, and Keras to build and train models, performing extensive preprocessing including imputation, outlier removal, and class balancing.</p>
+                  <p>Conducted exploratory data analysis to uncover feature relationships and built various models including Logistic Regression, KNN, Random Forest, Decision Tree, SVM, and CNNs. Models were evaluated using 5-fold stratified cross-validation, with the CNN achieving the highest accuracy of 76% for predicting scholarship awards.</p>
+                </div>
+              </div>
+              <div class="expand-overlay">
+                <button class="expand-button">Read More <i class="bi bi-chevron-down"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12 mb-5" data-aos="fade-up" data-aos-delay="400">
+            <div class="project-item">
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="project-img-container">
+                    <img src="assets/img/projects/missing-money.jpg" class="img-fluid" alt="Missing Money Matters">
+                  </div>
+                </div>
+                <div class="col-lg-9 pt-4 pt-lg-0">
+                  <h3>Missing Money Matters - Data Analysis Project using SQL and NoSQL</h3>
+                  <p><em><a href="https://github.com/nmn-pandey/Missing-Money-Matters" target="_blank">View Project on GitHub</a></em></p>
+                  <p>The "Missing Money Matters" project is an engaging SQL and NoSQL training exercise where I played the role of a data analyst for WSDA Music. Tasked with investigating financial discrepancies in the company's records, I utilized SQLite and MongoDB to analyze and manipulate data.</p>
+                  <p>The project demonstrates proficiency in both relational and non-relational database systems, showcasing the ability to extract meaningful insights from complex financial data across different database paradigms.</p>
+                </div>
+              </div>
+              <div class="expand-overlay">
+                <button class="expand-button">Read More <i class="bi bi-chevron-down"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Projects Section -->
+
+    <!-- ======= Games Section ======= -->
+    <section id="games" class="games hidden">
+      <div class="container">
+        <div class="section-title">
+          <h2 style="color: white;">Games</h2>
+          <p style="color: white;">Take a break and enjoy some classic games!</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="games-container">
+              <div class="parallax-layer parallax-layer-1"></div>
+              <div class="parallax-layer parallax-layer-2"></div>
+              <div class="parallax-layer parallax-layer-3"></div>
+              <canvas id="gameCanvas"></canvas>
+              <div class="game-controls">
+                <button id="snakeBtn" class="game-btn">Snake</button>
+                <button id="tetrisBtn" class="game-btn">Tetris</button>
+                <button id="flappyBtn" class="game-btn">Flappy Bird</button>
+                <button id="tictactoeBtn" class="game-btn">Tic Tac Toe</button>
+              </div>
+              <div class="game-prompt" id="gamePrompt">Select a game to play</div>
+              <div class="game-hints">
+                <div class="hint-left">
+                  <h3>Game Controls</h3>
+                  <div class="hint-content" id="snakeHints">
+                    <p>Use <strong>arrow keys</strong> to control the snake</p>
+                    <p>Eat food to grow longer</p>
+                    <p>Avoid hitting walls or yourself</p>
+                  </div>
+                  <div class="hint-content" id="tetrisHints">
+                    <p>Use <strong>arrow keys</strong> to move and rotate</p>
+                    <p>Space to drop piece instantly</p>
+                    <p>Complete lines to clear them</p>
+                  </div>
+                  <div class="hint-content" id="flappyHints">
+                    <p>Press <strong>space</strong> to flap</p>
+                    <p>Avoid pipes and ground</p>
+                    <p>Pass through gaps to score</p>
+                  </div>
+                  <div class="hint-content" id="tictactoeHints">
+                    <p><strong>Click</strong> to place X or O</p>
+                    <p>Get three in a row to win</p>
+                    <p>Can be played against AI</p>
+                  </div>
+                </div>
+                <div class="hint-right">
+                  <h3>Tips & Tricks</h3>
+                  <div class="hint-content" id="snakeTips">
+                    <p>Plan your path ahead</p>
+                    <p>Use walls to your advantage</p>
+                    <p>Speed increases with score</p>
+                  </div>
+                  <div class="hint-content" id="tetrisTips">
+                    <p>Keep the stack low</p>
+                    <p>Save I pieces for emergencies</p>
+                    <p>Look for Tetris opportunities</p>
+                  </div>
+                  <div class="hint-content" id="flappyTips">
+                    <p>Maintain steady rhythm</p>
+                    <p>Don't overcorrect</p>
+                    <p>Watch for pipe patterns</p>
+                  </div>
+                  <div class="hint-content" id="tictactoeTips">
+                    <p>Start in the center</p>
+                    <p>Look for winning moves</p>
+                    <p>Block opponent's threats</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
@@ -564,105 +770,519 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/games.js"></script>
   <script>
+    // Handle games section visibility
+    document.getElementById('gamesToggle').addEventListener('change', function() {
+      const gamesSection = document.getElementById('games');
+      if (this.checked) {
+        gamesSection.classList.remove('hidden');
+        gamesSection.scrollIntoView({ behavior: 'smooth' });
+        initializeGames();
+        startParallaxEffect('games-container');
+      } else {
+        gamesSection.classList.add('hidden');
+        cleanupGames();
+        stopParallaxEffect('games-container');
+      }
+    });
+
+    // Project expansion functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Wait for images to load and styles to be applied before checking heights
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const projectItems = document.querySelectorAll('.project-item');
+          const expandOverlays = document.querySelectorAll('.expand-overlay');
+          
+          // Check which project items need expand overlay based on content height
+          projectItems.forEach((item, index) => {
+            // Get the text content area (col-lg-9) 
+            const contentArea = item.querySelector('.col-lg-9');
+            if (!contentArea) return;
+            
+            // Get just the content area height
+            const contentHeight = contentArea.scrollHeight;
+            const maxHeight = 310; // Same as CSS max-height
+            const expandOverlay = expandOverlays[index];
+            
+            console.log(`Project ${index + 1} content height: ${contentHeight}px`);
+            
+            // If content height is less than or equal to max-height, hide the overlay
+            if (contentHeight <= maxHeight - 50) { // Account for padding
+              if (expandOverlay) {
+                expandOverlay.style.display = 'none';
+              }
+            } else {
+              // Make sure the content is constrained initially
+              contentArea.style.maxHeight = (maxHeight - 50) + 'px'; // Account for padding
+              contentArea.style.overflow = 'hidden';
+              
+              // Add click event for the expand button
+              if (expandOverlay) {
+                expandOverlay.addEventListener('click', function() {
+                  if (!item.classList.contains('expanded')) {
+                    // Expand
+                    item.classList.add('expanded');
+                    contentArea.style.maxHeight = 'none';
+                    contentArea.style.overflow = 'visible';
+                    const expandButton = this.querySelector('.expand-button');
+                    if (expandButton) {
+                      expandButton.innerHTML = 'Read Less <i class="bi bi-chevron-up"></i>';
+                    }
+                  } else {
+                    // Collapse
+                    item.classList.remove('expanded');
+                    contentArea.style.maxHeight = (maxHeight - 50) + 'px';
+                    contentArea.style.overflow = 'hidden';
+                    const expandButton = this.querySelector('.expand-button');
+                    if (expandButton) {
+                      expandButton.innerHTML = 'Read More <i class="bi bi-chevron-down"></i>';
+                    }
+                  }
+                });
+              }
+            }
+          });
+        }, 500); // Small delay to ensure everything is rendered
+      });
+    });
+
+    // Parallax effect variables
+    let parallaxIntervals = {};
+    let mouseX = 0;
+    let mouseY = 0;
+
+    // Start the hero parallax effect when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      startParallaxEffect('hero-bg');
+      
+      // Set up background toggle button
+      const bgToggleBtn = document.getElementById('bgToggle');
+      const heroCanvas = document.getElementById('heroCanvas');
+      const heroParallaxLayers = document.querySelectorAll('.hero-bg .parallax-layer');
+      
+      // Initialize Three.js scene but don't start animation yet
+      initThreeJsScene();
+      
+      bgToggleBtn.addEventListener('click', function() {
+        // Toggle between parallax and Three.js backgrounds
+        if (heroCanvas.classList.contains('hidden')) {
+          // Show Three.js background, hide parallax
+          heroCanvas.classList.remove('hidden');
+          heroParallaxLayers.forEach(layer => {
+            layer.classList.add('hidden');
+          });
+          stopParallaxEffect('hero-bg');
+          
+          // Start animation for Three.js
+          if (!animationFrameId) {
+            animate();
+          }
+        } else {
+          // Show parallax background, hide Three.js
+          heroCanvas.classList.add('hidden');
+          heroParallaxLayers.forEach(layer => {
+            layer.classList.remove('hidden');
+          });
+          startParallaxEffect('hero-bg');
+          
+          // Stop Three.js animation
+          if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+          }
+        }
+      });
+    });
+
+    function startParallaxEffect(containerClass) {
+      const container = document.querySelector(`.${containerClass}`);
+      if (!container) return;
+      
+      const layers = container.querySelectorAll('.parallax-layer');
+      
+      // Mouse move handler for parallax
+      container.addEventListener('mousemove', handleMouseMove);
+      
+      // Start parallax animation
+      parallaxIntervals[containerClass] = setInterval(() => {
+        const x = mouseX * 0.05;
+        const y = mouseY * 0.05;
+        
+        // Apply parallax to background elements with different speeds
+        container.style.setProperty('--parallax-x', `${x}px`);
+        container.style.setProperty('--parallax-y', `${y}px`);
+        
+        // Apply different parallax effects to each layer
+        layers.forEach((layer, index) => {
+          const speed = 0.05 + (index * 0.02); // Each layer moves at a different speed
+          const layerX = x * speed;
+          const layerY = y * speed;
+          layer.style.transform = `translate(${layerX}px, ${layerY}px)`;
+        });
+        
+        // Update pseudo-elements
+        const before = container.querySelector('::before');
+        const after = container.querySelector('::after');
+        if (before) before.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+        if (after) after.style.transform = `translate(${-x * 0.1}px, ${-y * 0.1}px)`;
+      }, 16);
+    }
+
+    function stopParallaxEffect(containerClass) {
+      clearInterval(parallaxIntervals[containerClass]);
+      const container = document.querySelector(`.${containerClass}`);
+      if (!container) return;
+      
+      const layers = container.querySelectorAll('.parallax-layer');
+      
+      container.removeEventListener('mousemove', handleMouseMove);
+      
+      // Reset all parallax elements
+      container.style.setProperty('--parallax-x', '0px');
+      container.style.setProperty('--parallax-y', '0px');
+      
+      layers.forEach(layer => {
+        layer.style.transform = 'translate(0px, 0px)';
+      });
+    }
+
+    function handleMouseMove(e) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      mouseX = e.clientX - rect.left - rect.width / 2;
+      mouseY = e.clientY - rect.top - rect.height / 2;
+    }
+
+    function initializeGames() {
+      const canvas = document.getElementById('gameCanvas');
+      const ctx = canvas.getContext('2d');
+      
+      // Set canvas size to match container
+      const container = canvas.parentElement;
+      canvas.width = container.clientWidth;
+      canvas.height = container.clientHeight;
+
+      // Initialize game state
+      window.gameState = {
+        currentGame: null,
+        gameRunning: false,
+        pendingStart: false,
+        score: 0
+      };
+      
+      // Initialize game engine
+      if (!window.gameEngine) {
+        window.gameEngine = new GameEngine();
+        window.gameEngine.canvas = canvas;
+        window.gameEngine.ctx = ctx;
+        window.gameEngine.initializeEngine();
+      }
+
+      // Add event listeners for game buttons
+      const gameButtons = document.querySelectorAll('.game-btn');
+      
+      gameButtons.forEach(button => {
+        // Click events
+        button.addEventListener('click', () => {
+          const gameType = button.id.replace('Btn', '');
+          // Make sure to clean up any existing games before selecting a new one
+          if (window.gameEngine && typeof window.gameEngine.cleanupAllGames === 'function') {
+            window.gameEngine.cleanupAllGames();
+          }
+          selectGame(gameType);
+        });
+        
+        // Hover events to show hints
+        button.addEventListener('mouseenter', () => {
+          if (!window.gameState.gameRunning) {
+            const gameType = button.id.replace('Btn', '');
+            showHints(gameType);
+          }
+        });
+        
+        button.addEventListener('mouseleave', () => {
+          if (!window.gameState.gameRunning && !window.gameState.pendingStart) {
+            // Hide all hints when not hovering over any button
+            document.querySelectorAll('.hint-content').forEach(hint => {
+              hint.classList.remove('active');
+            });
+            
+            // If a game is pending start, restore its hints
+            if (window.gameState.currentGame) {
+              const currentGame = window.gameState.currentGame;
+              document.getElementById(`${currentGame}Hints`).classList.add('active');
+              document.getElementById(`${currentGame}Tips`).classList.add('active');
+            }
+          }
+        });
+      });
+      
+      // Add keyboard event listener for space key to start games
+      document.addEventListener('keydown', handleKeyDown);
+    }
+
+    function showHints(gameType) {
+      // Hide all hint content first
+      document.querySelectorAll('.hint-content').forEach(hint => {
+        hint.classList.remove('active');
+      });
+      
+      // Show hints for hovered game
+      document.getElementById(`${gameType}Hints`).classList.add('active');
+      document.getElementById(`${gameType}Tips`).classList.add('active');
+    }
+
+    function handleKeyDown(e) {
+      // If space key is pressed and a game is selected but not running
+      if (e.code === 'Space' && window.gameState.currentGame && !window.gameState.gameRunning) {
+        e.preventDefault(); // Prevent scrolling
+        startGame(window.gameState.currentGame);
+      }
+    }
+
+    function cleanupGames() {
+      // Use the engine's centralized cleanup if available
+      if (window.gameEngine && typeof window.gameEngine.cleanupAllGames === 'function') {
+        window.gameEngine.cleanupAllGames();
+      } else {
+        // Fallback cleanup if engine not available
+        // Clean up any game-specific resources
+        if (window.gameState) {
+          window.gameState.currentGame = null;
+          window.gameState.gameRunning = false;
+          window.gameState.pendingStart = false;
+          window.gameState.score = 0;
+        }
+        
+        // Cleanup game engine if it exists
+        if (window.gameEngine) {
+          if (window.gameEngine.currentGame && typeof window.gameEngine.currentGame.dispose === 'function') {
+            window.gameEngine.currentGame.dispose();
+          }
+          window.gameEngine.currentGame = null;
+          window.gameEngine.gameEnded = false;
+          window.gameEngine.score = 0;
+        }
+        
+        // Show the base prompt
+        const gamePrompt = document.getElementById('gamePrompt');
+        if (gamePrompt) {
+          gamePrompt.textContent = 'Select a game to play';
+          gamePrompt.classList.remove('hidden');
+        }
+        
+        // Hide all hint content
+        document.querySelectorAll('.hint-content').forEach(hint => {
+          hint.classList.remove('active');
+        });
+      }
+    }
+
+    function selectGame(gameType) {
+      // Reset any existing game setup
+      cleanupGames();
+      
+      // Update game state
+      window.gameState.currentGame = gameType;
+      window.gameState.pendingStart = true;
+      
+      // Update prompt
+      const gamePrompt = document.getElementById('gamePrompt');
+      if (gameType === 'tictactoe') {
+        gamePrompt.textContent = 'Click anywhere to place your move';
+        startGame(gameType); // Start tic-tac-toe immediately
+      } else {
+        gamePrompt.textContent = 'Press SPACE to start';
+      }
+      
+      // Show hints for selected game
+      showHints(gameType);
+    }
+
+    function startGame(gameType) {
+      // Update game state
+      window.gameState.gameRunning = true;
+      window.gameState.pendingStart = false;
+      
+      // Hide the prompt during gameplay
+      const promptElement = document.getElementById('gamePrompt');
+      if (promptElement) {
+        promptElement.classList.add('hidden');
+      }
+      
+      // Initialize new game based on type
+      switch(gameType) {
+        case 'snake':
+          // Initialize Snake game
+          window.gameEngine = window.gameEngine || new GameEngine();
+          window.gameEngine.gameEnded = false; // Ensure gameEnded is reset
+          window.gameEngine.startSnake();
+          console.log('Starting Snake game');
+          break;
+        case 'tetris':
+          // Initialize Tetris game
+          window.gameEngine = window.gameEngine || new GameEngine();
+          window.gameEngine.gameEnded = false; // Ensure gameEnded is reset
+          window.gameEngine.startTetris();
+          console.log('Starting Tetris game');
+          break;
+        case 'flappy':
+          // Initialize Flappy Bird game
+          window.gameEngine = window.gameEngine || new GameEngine();
+          window.gameEngine.gameEnded = false; // Ensure gameEnded is reset
+          window.gameEngine.startFlappyBird();
+          console.log('Starting Flappy Bird game');
+          break;
+        case 'tictactoe':
+          // Initialize Tic Tac Toe game
+          window.gameEngine = window.gameEngine || new GameEngine();
+          window.gameEngine.gameEnded = false; // Ensure gameEnded is reset
+          window.gameEngine.startTicTacToe();
+          console.log('Starting Tic Tac Toe game');
+          break;
+      }
+    }
+
     // Set up the scene, camera, and renderer
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 0.1, 100);
     const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('heroCanvas'), alpha: true, antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-
-    // Create a group to hold our objects
-    const brainGroup = new THREE.Group();
-    scene.add(brainGroup);
-
-    // Create neurons
-    const neuronCount = 100;
-    const neurons = [];
-    const neuronGeometry = new THREE.SphereGeometry(0.5, 32, 32);
-    const neuronMaterial = new THREE.MeshPhongMaterial({
-      color: 0x00ffff,
-      emissive: 0x0088ff,
-      shininess: 100,
-      transparent: true,
-      opacity: 1
-    });
-
-    // Aura material
-    const auraMaterial = new THREE.ShaderMaterial({
-      uniforms: {
-        color: { value: new THREE.Color(0xffff00) },
-        time: { value: 0 },
-      },
-      vertexShader: `
-        varying vec3 vNormal;
-        void main() {
-          vNormal = normalize(normalMatrix * normal);
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-      fragmentShader: `
-        uniform vec3 color;
-        uniform float time;
-        varying vec3 vNormal;
-        void main() {
-          float intensity = pow(0.7 - dot(vNormal, vec3(0, 0, 1.0)), 2.0);
-          gl_FragColor = vec4(color, intensity * (0.5 + 0.5 * sin(time * 10.0)));
-        }
-      `,
-      side: THREE.BackSide,
-      blending: THREE.AdditiveBlending,
-      transparent: true
-    });
-
-    for (let i = 0; i < neuronCount; i++) {
-      const neuron = new THREE.Mesh(neuronGeometry, neuronMaterial.clone());
-      neuron.position.set(
-        (Math.random() - 0.5) * 6,
-        (Math.random() - 0.5) * 6,
-        (Math.random() - 0.5) * 6
-      );
-      neuron.scale.setScalar(Math.random() * 0.5 + 0.5);
-      neuron.userData = { 
-        activated: false, 
-        activationTime: 0,
-        aura: new THREE.Mesh(new THREE.SphereGeometry(0.075, 20, 20), auraMaterial.clone())
-      };
-      neuron.userData.aura.scale.setScalar(1);
-      neuron.userData.aura.visible = false;
-      neuron.add(neuron.userData.aura);
-      brainGroup.add(neuron);
-      neurons.push(neuron);
-    }
-
-
-    // Create synapse particles
-    const synapseParticles = [];
-    const synapseGeometry = new THREE.SphereGeometry(0.01, 8, 8);
-    const synapseMaterial = new THREE.MeshBasicMaterial({
-      color: 0xffffff,
-      transparent: true,
-      opacity: 0.7
-    });
-
-    // Lights
-    const ambientLight = new THREE.AmbientLight(0x404040);
-    scene.add(ambientLight);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-    directionalLight.position.set(1, 1, 1);
-    scene.add(directionalLight);
-
-    // Position camera
-    camera.position.set(0, 0, 10);
-
-    // Mouse interaction
-    const raycaster = new THREE.Raycaster();
-    const mouse = new THREE.Vector2();
-
-    // Animation loop
+    
+    // Global variables for Three.js
+    let brainGroup;
+    let neurons = [];
+    let synapseParticles = [];
     let time = 0;
+    let animationFrameId = null;
+    const mouse = new THREE.Vector2();
+    const raycaster = new THREE.Raycaster();
+    
+    // Function to initialize Three.js scene
+    function initThreeJsScene() {
+      const heroCanvas = document.getElementById('heroCanvas');
+      
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+    
+      // Create a group to hold our objects
+      brainGroup = new THREE.Group();
+      scene.add(brainGroup);
+    
+      // Create neurons
+      const neuronCount = 100;
+      const neuronGeometry = new THREE.SphereGeometry(0.5, 32, 32);
+      const neuronMaterial = new THREE.MeshPhongMaterial({
+        color: 0x00ffff,
+        emissive: 0x0088ff,
+        shininess: 100,
+        transparent: true,
+        opacity: 1
+      });
+    
+      // Aura material
+      const auraMaterial = new THREE.ShaderMaterial({
+        uniforms: {
+          color: { value: new THREE.Color(0xffff00) },
+          time: { value: 0 },
+        },
+        vertexShader: `
+          varying vec3 vNormal;
+          void main() {
+            vNormal = normalize(normalMatrix * normal);
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `,
+        fragmentShader: `
+          uniform vec3 color;
+          uniform float time;
+          varying vec3 vNormal;
+          void main() {
+            float intensity = pow(0.7 - dot(vNormal, vec3(0, 0, 1.0)), 2.0);
+            gl_FragColor = vec4(color, intensity * (0.5 + 0.5 * sin(time * 10.0)));
+          }
+        `,
+        side: THREE.BackSide,
+        blending: THREE.AdditiveBlending,
+        transparent: true
+      });
+
+      for (let i = 0; i < neuronCount; i++) {
+        const neuron = new THREE.Mesh(neuronGeometry, neuronMaterial.clone());
+        neuron.position.set(
+          (Math.random() - 0.5) * 6,
+          (Math.random() - 0.5) * 6,
+          (Math.random() - 0.5) * 6
+        );
+        neuron.scale.setScalar(Math.random() * 0.5 + 0.5);
+        neuron.userData = { 
+          activated: false, 
+          activationTime: 0,
+          aura: new THREE.Mesh(new THREE.SphereGeometry(0.075, 20, 20), auraMaterial.clone())
+        };
+        neuron.userData.aura.scale.setScalar(1);
+        neuron.userData.aura.visible = false;
+        neuron.add(neuron.userData.aura);
+        brainGroup.add(neuron);
+        neurons.push(neuron);
+      }
+
+      // Create synapse particles
+      const synapseGeometry = new THREE.SphereGeometry(0.01, 8, 8);
+      const synapseMaterial = new THREE.MeshBasicMaterial({
+        color: 0xffffff,
+        transparent: true,
+        opacity: 0.7
+      });
+
+      // Lights
+      const ambientLight = new THREE.AmbientLight(0x404040);
+      scene.add(ambientLight);
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+      directionalLight.position.set(1, 1, 1);
+      scene.add(directionalLight);
+
+      // Position camera
+      camera.position.set(0, 0, 10);
+
+      // Mouse move event
+      window.addEventListener('mousemove', (event) => {
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, camera);
+        const intersects = raycaster.intersectObjects(neurons);
+
+        if (intersects.length > 0) {
+          const intersectedNeuron = intersects[0].object;
+          if (!intersectedNeuron.userData.activated) {
+            intersectedNeuron.userData.activated = true;
+            intersectedNeuron.userData.activationTime = time;
+            intersectedNeuron.scale.setScalar(2);
+          }
+        }
+      });
+
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+
+      // Scroll event
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        camera.position.z = 10 - scrollY * 0.01;
+      });
+      
+      // Setup ML process simulation timer
+      setInterval(simulateMLProcess, 2000);
+    }
+      
+    // Animation loop
     function animate() {
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
       time += 0.01;
 
       // Rotate the brain group based on mouse position
@@ -710,65 +1330,45 @@
       });
 
       // Update synapse particles
-      synapseParticles.forEach((particle, index) => {
+      for (let i = synapseParticles.length - 1; i >= 0; i--) {
+        const particle = synapseParticles[i];
         particle.userData.t += 0.02;
         if (particle.userData.t > 1) {
           brainGroup.remove(particle);
-          synapseParticles.splice(index, 1);
+          synapseParticles.splice(i, 1);
         } else {
           const { start, end } = particle.userData;
           particle.position.lerpVectors(start, end, particle.userData.t);
         }
-      });
+      }
 
       renderer.render(scene, camera);
     }
-    animate();
-
-    // Handle window resize
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-
-    // Mouse move event
-    window.addEventListener('mousemove', (event) => {
-      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-      raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObjects(neurons);
-
-      if (intersects.length > 0) {
-        const intersectedNeuron = intersects[0].object;
-        if (!intersectedNeuron.userData.activated) {
-          intersectedNeuron.userData.activated = true;
-          intersectedNeuron.userData.activationTime = time;
-          intersectedNeuron.scale.setScalar(2);
-        }
-      }
-    });
-
-    // Scroll event
-    let scrollY = 0;
-    window.addEventListener('scroll', () => {
-      scrollY = window.scrollY;
-      camera.position.z = 10 - scrollY * 0.01;
-    });
-
+    
     // Simulated ML process with traveling synapses
     function simulateMLProcess() {
+      // Only run if animation is active and canvas is visible
+      if (!animationFrameId || document.getElementById('heroCanvas').classList.contains('hidden')) {
+        return;
+      }
+      
       const duration = 2000; // 2 seconds
       const activationSequence = [];
+      const neuronCount = neurons.length;
 
       for (let i = 0; i < 20; i++) {
         activationSequence.push(Math.floor(Math.random() * neuronCount));
       }
 
       let startTime = null;
+      const synapseGeometry = new THREE.SphereGeometry(0.01, 8, 8);
+      const synapseMaterial = new THREE.MeshBasicMaterial({
+        color: 0xffffff,
+        transparent: true,
+        opacity: 0.7
+      });
 
-      function animate(currentTime) {
+      function animateProcess(currentTime) {
         if (!startTime) startTime = currentTime;
         const elapsedTime = currentTime - startTime;
 
@@ -788,7 +1388,7 @@
           start.userData.activated = true;
           start.scale.setScalar(2);
 
-          requestAnimationFrame(animate);
+          requestAnimationFrame(animateProcess);
         } else {
           neurons.forEach(neuron => {
             neuron.userData.activated = false;
@@ -797,11 +1397,8 @@
         }
       }
 
-      requestAnimationFrame(animate);
+      requestAnimationFrame(animateProcess);
     }
-
-    // Trigger ML process simulation every 5 seconds
-    setInterval(simulateMLProcess, 2000);
   </script>
 
 </body>

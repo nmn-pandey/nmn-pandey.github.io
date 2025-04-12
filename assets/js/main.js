@@ -259,4 +259,51 @@
    */
   new PureCounter();
 
+  /**
+   * Game Engine Stop All Games
+   */
+  function stopAllGames() {
+    // Stop any ongoing game loops
+    if (this.currentGame && typeof this.currentGame.dispose === 'function') {
+      this.currentGame.dispose();
+    }
+    this.currentGame = null;
+    this.gameEnded = false;
+    this.score = 0;
+
+    // Reset game state
+    window.gameState.currentGame = null;
+    window.gameState.gameRunning = false;
+    window.gameState.pendingStart = false;
+
+    // Clear the canvas
+    const ctx = this.canvas.getContext('2d');
+    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    // Show the base prompt
+    const gamePrompt = document.getElementById('gamePrompt');
+    if (gamePrompt) {
+      gamePrompt.textContent = 'Select a game to play';
+      gamePrompt.classList.remove('hidden');
+    }
+
+    // Hide all hint content
+    document.querySelectorAll('.hint-content').forEach(hint => {
+      hint.classList.remove('active');
+    });
+
+    // Show game controls
+    const controls = document.querySelector('.game-controls');
+    if (controls) {
+      controls.style.display = 'flex';
+    }
+  }
+
+  // Call this method when returning to the menu
+  function cleanupGames() {
+    if (window.gameEngine) {
+      window.gameEngine.stopAllGames();
+    }
+  }
+
 })()

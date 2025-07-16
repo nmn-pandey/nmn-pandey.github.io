@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Guide: Smoking Detection Watch App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Tailwind Slate with Teal accent -->
+    <!-- Application Structure Plan: A single-page, vertical scrolling application with a sticky navigation header. The structure is designed to guide the user from a high-level overview to deep technical details in a non-linear, exploratory fashion. The key sections are: 1) An introduction (Hero). 2) An interactive diagram of the core detection loop ('How It Works'). 3) Clickable cards detailing the 'Technology Stack'. 4) A section on the 'Machine Learning Process' with an interactive chart simulation. 5) A visual breakdown of the 'User Experience'. 6) A summary of 'Key Challenges'. 7) A detailed 'Step-by-Step Guide' for building the app. This thematic structure was chosen over a linear one to allow users to jump to topics of interest and to make dense, technical information more digestible and engaging through targeted interactions. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Core Detection Logic -> Goal: Organize/Relate -> Viz: HTML/CSS Flowchart -> Interaction: Hover to highlight -> Justification: Visually maps the system's logic flow, making it easier to understand than a text description.
+        - Report Info: Data Sources/Technologies Table -> Goal: Inform/Organize -> Viz: Interactive Cards -> Interaction: Click to expand/collapse details -> Justification: Breaks down a dense table into bite-sized, user-driven pieces, preventing information overload.
+        - Report Info: ML Confidence Score -> Goal: Demonstrate/Inform -> Viz: Chart.js Bar Chart -> Interaction: Button click to simulate a new prediction -> Justification: Makes the abstract concept of a probabilistic ML output tangible and understandable.
+        - Report Info: UX Features & Challenges -> Goal: Inform -> Viz: Icon-based grid layout -> Interaction: Static -> Justification: Clean, scannable layout for presenting conceptual information clearly.
+        - Report Info: Procedural Steps -> Goal: Instruct -> Viz: Numbered list with icons -> Interaction: Static -> Justification: Provides a clear, easy-to-follow checklist for developers, breaking a complex project into manageable steps.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        .nav-link {
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: #0d9488; /* teal-600 */
+            border-bottom-color: #0d9488;
+        }
+        .flow-arrow::after {
+            content: '→';
+            font-size: 2rem;
+            color: #94a3b8; /* slate-400 */
+            line-height: 1;
+        }
+        @media (max-width: 768px) {
+            .flow-arrow::after {
+                content: '↓';
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-teal-700">Smoking Detection Guide</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#overview" class="nav-link px-3 py-2 text-sm font-medium text-slate-600">Overview</a>
+                        <a href="#how-it-works" class="nav-link px-3 py-2 text-sm font-medium text-slate-600">How It Works</a>
+                        <a href="#tech-stack" class="nav-link px-3 py-2 text-sm font-medium text-slate-600">Tech Stack</a>
+                        <a href="#ml-process" class="nav-link px-3 py-2 text-sm font-medium text-slate-600">ML Process</a>
+                        <a href="#ux" class="nav-link px-3 py-2 text-sm font-medium text-slate-600">UX</a>
+                        <a href="#challenges" class="nav-link px-3 py-2 text-sm font-medium text-slate-600">Challenges</a>
+                        <a href="#step-by-step" class="nav-link px-3 py-2 text-sm font-medium text-slate-600">Guide</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+        <!-- Section 1: Overview -->
+        <section id="overview" class="text-center py-16">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">Building a Smarter Path to Quitting</h2>
+            <p class="max-w-3xl mx-auto text-lg text-slate-600 mb-8">
+                This guide explores the creation of a revolutionary Apple Watch application designed to intelligently detect smoking patterns. By fusing data from the watch's built-in sensors with machine learning, the app can identify smoking events in real-time, providing timely interventions to support users on their journey to quit.
+            </p>
+        </section>
+
+        <!-- Section 2: How It Works -->
+        <section id="how-it-works" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">The Detection Engine Loop</h2>
+                <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">The app's core logic relies on a multi-stage process to ensure accuracy and avoid false positives. It starts with motion detection and uses other sensors as a secondary check to confirm a smoking event. This interactive diagram shows the flow of data and decision-making. Hover over a step to learn more.</p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-center">
+                <div class="p-6 bg-white rounded-xl shadow-md flex-1 w-full md:w-auto transition-all duration-300 hover:shadow-xl hover:scale-105" title="The process begins by analyzing hand and arm movement for the distinct hand-to-mouth gesture of smoking.">
+                    <div class="text-4xl mb-2">👋</div>
+                    <h3 class="text-lg font-semibold text-slate-800">Gesture Recognition</h3>
+                    <p class="text-slate-500 text-sm">Core Motion detects a potential smoking gesture.</p>
+                </div>
+                <div class="flow-arrow"></div>
+                <div class="p-6 bg-white rounded-xl shadow-md flex-1 w-full md:w-auto transition-all duration-300 hover:shadow-xl hover:scale-105" title="To verify the gesture, the system checks for other concurrent signals associated with smoking.">
+                    <div class="text-4xl mb-2">🔍</div>
+                    <h3 class="text-lg font-semibold text-slate-800">Secondary Check</h3>
+                    <p class="text-slate-500 text-sm">Triggers verification using other sensors.</p>
+                </div>
+                <div class="flow-arrow"></div>
+                <div class="p-6 bg-white rounded-xl shadow-md flex-1 w-full md:w-auto transition-all duration-300 hover:shadow-xl hover:scale-105" title="Nicotine causes a heart rate spike, and lighters make a distinct sound. The app looks for these confirmation signals.">
+                    <div class="text-4xl mb-2">❤️+🔊</div>
+                    <h3 class="text-lg font-semibold text-slate-800">Sensor Fusion</h3>
+                    <p class="text-slate-500 text-sm">Cross-references heart rate and ambient sound.</p>
+                </div>
+                 <div class="flow-arrow"></div>
+                <div class="p-6 bg-teal-50 rounded-xl shadow-md flex-1 w-full md:w-auto transition-all duration-300 hover:shadow-xl hover:scale-105" title="If multiple sensors confirm the event, the app intervenes with a haptic alert and helpful notification.">
+                    <div class="text-4xl mb-2">💡</div>
+                    <h3 class="text-lg font-semibold text-teal-800">Confirmation & Intervention</h3>
+                    <p class="text-teal-600 text-sm">High confidence triggers a user notification.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Technology Stack -->
+        <section id="tech-stack" class="py-16 bg-white rounded-2xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">Core Technologies & Data Sources</h2>
+                <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">The app is powered by a suite of sophisticated Apple frameworks. Each one provides a crucial piece of the puzzle, from motion tracking to health data analysis. Click on a card to reveal how each technology contributes.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="tech-card cursor-pointer" data-target="tech-1">
+                    <div class="p-6 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Hand & Arm Motion</h3>
+                        <p class="text-slate-500 font-mono text-sm bg-slate-100 rounded inline-block px-2 py-1">Core Motion</p>
+                    </div>
+                    <div id="tech-1" class="tech-detail hidden mt-2 px-6 pb-4 text-slate-600 text-sm">The most critical piece. The hand-to-mouth gesture of smoking creates a very distinct pattern of accelerometer and gyroscope data. A model can be trained to recognize this specific arc and rotation.</div>
+                </div>
+                <div class="tech-card cursor-pointer" data-target="tech-2">
+                     <div class="p-6 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Ambient Sound</h3>
+                        <p class="text-slate-500 font-mono text-sm bg-slate-100 rounded inline-block px-2 py-1">SoundAnalysis</p>
+                    </div>
+                    <div id="tech-2" class="tech-detail hidden mt-2 px-6 pb-4 text-slate-600 text-sm">The app can listen for specific sounds associated with smoking, such as the distinct click and rasp of a lighter or the sound of a sharp inhalation/exhalation.</div>
+                </div>
+                <div class="tech-card cursor-pointer" data-target="tech-3">
+                     <div class="p-6 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Heart Rate</h3>
+                        <p class="text-slate-500 font-mono text-sm bg-slate-100 rounded inline-block px-2 py-1">HealthKit</p>
+                    </div>
+                    <div id="tech-3" class="tech-detail hidden mt-2 px-6 pb-4 text-slate-600 text-sm">Nicotine causes a rapid, temporary increase in heart rate. A spike in heart rate that coincides with a recognized hand gesture is a very strong confirmation signal.</div>
+                </div>
+                <div class="tech-card cursor-pointer" data-target="tech-4">
+                     <div class="p-6 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Time & Context</h3>
+                        <p class="text-slate-500 font-mono text-sm bg-slate-100 rounded inline-block px-2 py-1">Core Location</p>
+                    </div>
+                    <div id="tech-4" class="tech-detail hidden mt-2 px-6 pb-4 text-slate-600 text-sm">Users often smoke at predictable times or in specific locations. Tracking when and where detections happen helps establish patterns and can even pre-empt cravings.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Machine Learning Process -->
+        <section id="ml-process" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">The "Brain": Machine Learning</h2>
+                <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">At the heart of the app is a machine learning model trained to distinguish smoking from everyday activities. The process involves training the model with real-world data and then running it directly on the watch for instant, private analysis.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-slate-800">Two-Step Process</h3>
+                    <div class="space-y-6">
+                        <div class="p-6 bg-white rounded-xl shadow-sm">
+                            <h4 class="font-bold text-teal-700">Step A: Data Collection & Training</h4>
+                            <p class="text-slate-600 mt-2">A special data-collection app is used first. The user presses a button to label "smoking" events, recording sensor data. This, along with "not smoking" data (like eating or typing), is used to train a `MLMotionClassifier` model on a Mac using Create ML.</p>
+                        </div>
+                        <div class="p-6 bg-white rounded-xl shadow-sm">
+                            <h4 class="font-bold text-teal-700">Step B: On-Device Inference</h4>
+                            <p class="text-slate-600 mt-2">The trained model is embedded in the main watch app. It processes a live feed from the sensors and outputs a prediction ("Smoking" or "Not Smoking") along with a confidence score, all privately on the user's device.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center p-8 bg-white rounded-2xl shadow-lg">
+                    <h4 class="text-xl font-semibold text-slate-800 mb-4">ML Prediction Simulator</h4>
+                    <p class="text-slate-600 mb-6">This chart simulates the model's output. Click the button to see how the model might classify a new gesture with a specific confidence level.</p>
+                    <div class="chart-container">
+                        <canvas id="mlChart"></canvas>
+                    </div>
+                    <button id="simulateBtn" class="mt-6 bg-teal-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors">
+                        Simulate New Detection
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 5: User Experience -->
+        <section id="ux" class="py-16 bg-white rounded-2xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">App Architecture & User Experience</h2>
+                 <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">A successful app isn't just technologically sound; it must also be helpful and intuitive. The architecture focuses on trust, timely intervention, and positive reinforcement to create a supportive user experience.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6">
+                    <div class="text-4xl mb-3">🤝</div>
+                    <h3 class="text-xl font-semibold text-slate-800">Onboarding & Permissions</h3>
+                    <p class="text-slate-600 mt-2">Clearly explains why sensor access is needed, building user trust from the start. May include a "calibration" phase to personalize the model.</p>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl mb-3">🔔</div>
+                    <h3 class="text-xl font-semibold text-slate-800">Intervention & Feedback</h3>
+                    <p class="text-slate-600 mt-2">When a smoking event is detected, the app delivers a gentle haptic buzz and a supportive notification with a mindfulness exercise or a motivating message.</p>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl mb-3">📊</div>
+                    <h3 class="text-xl font-semibold text-slate-800">Dashboard & Progress</h3>
+                    <p class="text-slate-600 mt-2">A dashboard on the iPhone and Watch visualizes progress, highlights patterns (e.g., "You most often smoke at 10 AM"), and celebrates milestones.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Key Challenges -->
+        <section id="challenges" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">Navigating the Challenges</h2>
+                 <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Building an app like this involves overcoming significant technical hurdles. A robust solution must be mindful of device limitations and the nuances of human behavior to be truly effective and trustworthy.</p>
+            </div>
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 bg-white rounded-xl shadow-sm">
+                    <div class="text-4xl mb-3">🔋</div>
+                    <h3 class="text-xl font-semibold text-slate-800">Battery Life</h3>
+                    <p class="text-slate-600 mt-2">Continuous sensor monitoring is draining. Smart strategies, like activating monitoring only in specific locations or times, are essential to conserve power.</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-sm">
+                    <div class="text-4xl mb-3">🤔</div>
+                    <h3 class="text-xl font-semibold text-slate-800">False Positives</h3>
+                    <p class="text-slate-600 mt-2">Eating, drinking, or even scratching can be mistaken for smoking. Combining multiple data sources (motion + heart rate + sound) is crucial to minimize errors.</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-sm">
+                    <div class="text-4xl mb-3">🔒</div>
+                    <h3 class="text-xl font-semibold text-slate-800">User Privacy</h3>
+                    <p class="text-slate-600 mt-2">All sensitive health and sensor data must be processed on-device. Data should never leave the user's device without their explicit, informed consent.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Step-by-Step Guide -->
+        <section id="step-by-step" class="py-16 bg-white rounded-2xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">Step-by-Step Build Guide</h2>
+                <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">This is your roadmap. Follow these steps meticulously to go from idea to a working prototype. This process is divided into five key phases.</p>
+            </div>
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <!-- Phase 1 -->
+                <div class="p-6 border-l-4 border-teal-500 bg-slate-50 rounded-r-lg">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Phase 1: Setup & Prerequisites</h3>
+                    <ol class="list-decimal list-inside space-y-4 text-slate-700">
+                        <li><strong>Hardware:</strong> You need a Mac computer (MacBook, iMac, etc.), an iPhone, and an Apple Watch.</li>
+                        <li><strong>Software:</strong> Download and install <a href="https://developer.apple.com/xcode/" target="_blank" class="text-teal-600 font-semibold hover:underline">Xcode</a> from the Mac App Store. This is the official development environment for all Apple platforms.</li>
+                        <li><strong>Apple Developer Account:</strong> Sign up for a free Apple Developer account. You can do this with your Apple ID at <a href="https://developer.apple.com/" target="_blank" class="text-teal-600 font-semibold hover:underline">developer.apple.com</a>. You only need a paid account if you want to publish to the App Store.</li>
+                    </ol>
+                </div>
+                <!-- Phase 2 -->
+                <div class="p-6 border-l-4 border-teal-500 bg-slate-50 rounded-r-lg">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Phase 2: Create the Data Collection App</h3>
+                    <ol class="list-decimal list-inside space-y-4 text-slate-700">
+                        <li><strong>New Project:</strong> Open Xcode. Go to `File > New > Project`. Select the `watchOS` tab and choose the `App` template. Name your project (e.g., "SmokingDataCollector"). Ensure you include both an iPhone and Watch App target.</li>
+                        <li><strong>Simple UI:</strong> In the `ContentView.swift` file for your Watch App, create a simple UI with one large button labeled "I am Smoking Now" and another labeled "Recording Other Activity".</li>
+                        <li><strong>Request Permissions:</strong> In your code, you must ask the user for permission to access Motion & Fitness data and Health data. You'll do this by adding keys like `NSMotionUsageDescription` and `NSHealthShareUsageDescription` to your `Info.plist` file.</li>
+                        <li><strong>Record Data:</strong> Write Swift code using `CoreMotion` to start capturing accelerometer and gyroscope data when a button is pressed. For each recording session (e.g., 15 seconds), save the data to a file on the watch. Label the file based on which button was pressed (e.g., `smoking_1.csv`, `other_1.csv`).</li>
+                    </ol>
+                </div>
+                <!-- Phase 3 -->
+                <div class="p-6 border-l-4 border-teal-500 bg-slate-50 rounded-r-lg">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Phase 3: Train the ML Model</h3>
+                    <ol class="list-decimal list-inside space-y-4 text-slate-700">
+                        <li><strong>Transfer Data:</strong> Get the recorded data files from your Apple Watch to your Mac. You can do this by building a simple feature in your companion iPhone app to transfer the files.</li>
+                        <li><strong>Organize Data:</strong> On your Mac, create a main folder. Inside it, create two subfolders: `smoking` and `other`. Place all your "smoking" data files in the `smoking` folder and all "other activity" files in the `other` folder.</li>
+                        <li><strong>Launch Create ML:</strong> Open Xcode. Go to `Xcode > Open Developer Tool > Create ML`.</li>
+                        <li><strong>New Project:</strong> Choose the `Motion Classifier` template.</li>
+                        <li><strong>Train Model:</strong> Drag your main data folder into the training data area in Create ML. The tool will automatically recognize your subfolders as class labels. Click the "Train" button and wait for it to finish.</li>
+                        <li><strong>Export Model:</strong> Once training is complete, you can test the model with sample data. When you're satisfied, export the model. It will be saved as a `.mlmodel` file (e.g., `SmokingClassifier.mlmodel`).</li>
+                    </ol>
+                </div>
+                <!-- Phase 4 -->
+                <div class="p-6 border-l-4 border-teal-500 bg-slate-50 rounded-r-lg">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Phase 4: Build the Main Detection App</h3>
+                    <ol class="list-decimal list-inside space-y-4 text-slate-700">
+                        <li><strong>New Project (or modify old one):</strong> Create a new watchOS project for your final app.</li>
+                        <li><strong>Import Model:</strong> Drag the `SmokingClassifier.mlmodel` file you exported into your Xcode project navigator. Xcode will automatically generate a Swift class for it.</li>
+                        <li><strong>Live Inference:</strong> In your watch app's code, set up `CoreMotion` to provide a live feed of sensor data.</li>
+                        <li><strong>Make Predictions:</strong> Collect sensor data into a buffer (e.g., a window of 100 samples). Feed this buffer into your ML model to get a prediction. The model will return the predicted activity ("smoking" or "other") and a confidence score.</li>
+                        <li><strong>Implement Secondary Checks:</strong> If the model predicts "smoking" with high confidence, immediately query `HealthKit` for the latest heart rate data and use `SoundAnalysis` to check for relevant sounds. This helps confirm the prediction.</li>
+                    </ol>
+                </div>
+                <!-- Phase 5 -->
+                <div class="p-6 border-l-4 border-teal-500 bg-slate-50 rounded-r-lg">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Phase 5: Design UI & Intervention</h3>
+                    <ol class="list-decimal list-inside space-y-4 text-slate-700">
+                        <li><strong>Build Dashboard:</strong> Design the main UI for your watch and iPhone apps. This should display statistics, progress, and patterns.</li>
+                        <li><strong>Trigger Intervention:</strong> If a smoking event is confirmed (high confidence prediction + secondary checks pass), trigger an intervention.</li>
+                        <li><strong>Haptics & Notifications:</strong> Use `WatchKit` to fire a custom haptic alert on the user's wrist. Immediately follow up with a `UserNotifications` push notification that offers encouragement or a distraction.</li>
+                        <li><strong>Test Rigorously:</strong> Test the app in many real-world scenarios (eating, driving, walking) to check for false positives and adjust your model or logic as needed.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-sm">
+            <p>&copy; 2025 Interactive Guide. All concepts are based on the provided technical guide.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navigation scroll highlighting
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            const isActive = link.getAttribute('href').substring(1) === entry.target.id;
+                            link.classList.toggle('active', isActive);
+                        });
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Tech stack card interaction
+            const techCards = document.querySelectorAll('.tech-card');
+            techCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const targetId = card.getAttribute('data-target');
+                    const detail = document.getElementById(targetId);
+                    const isVisible = !detail.classList.contains('hidden');
+                    
+                    document.querySelectorAll('.tech-detail').forEach(d => {
+                        if(d.id !== targetId) d.classList.add('hidden');
+                    });
+                    
+                    detail.classList.toggle('hidden');
+                });
+            });
+
+            // ML Chart Simulation
+            const ctx = document.getElementById('mlChart').getContext('2d');
+            let mlChart;
+
+            function createOrUpdateChart(smokingProb, notSmokingProb) {
+                const data = {
+                    labels: ['Smoking', 'Not Smoking'],
+                    datasets: [{
+                        label: 'Confidence',
+                        data: [smokingProb, notSmokingProb],
+                        backgroundColor: [
+                            'rgba(13, 148, 136, 0.6)', // teal-600
+                            'rgba(148, 163, 184, 0.6)' // slate-400
+                        ],
+                        borderColor: [
+                            'rgba(13, 148, 136, 1)',
+                            'rgba(148, 163, 184, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                };
+
+                const config = {
+                    type: 'bar',
+                    data: data,
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                max: 1,
+                                ticks: {
+                                    callback: function(value) {
+                                        return (value * 100) + '%';
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.x !== null) {
+                                            label += (context.parsed.x * 100).toFixed(2) + '%';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+                
+                if(mlChart) {
+                    mlChart.data.datasets[0].data = [smokingProb, notSmokingProb];
+                    mlChart.update();
+                } else {
+                    mlChart = new Chart(ctx, config);
+                }
+            }
+
+            const simulateBtn = document.getElementById('simulateBtn');
+            simulateBtn.addEventListener('click', () => {
+                // Generate a random primary value, the other is the remainder
+                const smokingConfidence = Math.random() * 0.85 + 0.1; // Skew towards more variability
+                const notSmokingConfidence = 1.0 - smokingConfidence;
+                createOrUpdateChart(smokingConfidence, notSmokingConfidence);
+            });
+
+            // Initial chart state
+            createOrUpdateChart(0.65, 0.35);
+        });
+    </script>
+</body>
+</html>

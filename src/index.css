@@ -43,6 +43,10 @@
     font-family: 'Inter', sans-serif;
   }
 
+  p {
+    text-align: justify;
+  }
+
   code,
   pre {
     font-family: 'JetBrains Mono', monospace;

@@ -229,16 +229,119 @@ section {
   background: var(--text-dim);
 }
 
+@media (max-width: 1024px) {
+  .brand-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .brand-grid>div {
+    grid-column: span 1 !important;
+  }
+}
+
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .nav-content {
+    padding: 0 1.5rem;
+  }
+
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--background);
+    z-index: 999;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .mobile-nav-link {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+  }
+
+  .mobile-nav-link.active {
+    color: var(--text);
   }
 
   section {
-    padding: 100px 0;
+    padding: 80px 0;
   }
 
   h1 {
     font-size: 3.5rem;
   }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .brand-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .brand-card {
+    padding: 2rem;
+  }
+
+  .marquee-item {
+    font-size: 2.5rem;
+    margin-right: 2rem;
+  }
+
+  .nav-brand {
+    height: 70px;
+  }
+
+  .mobile-menu-overlay {
+    top: 70px;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+}
+
+/* Ensure images and cards don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.app-container {
+  overflow-x: hidden;
 }

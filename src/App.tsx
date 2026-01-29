@@ -143,7 +143,7 @@ function App() {
   const [handPosition, setHandPosition] = useState({ x: 0.5, y: 0.5 });
   const [typingText, setTypingText] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showControls, setShowControls] = useState(true);
+  const [showControls, setShowControls] = useState(typeof window !== 'undefined' ? window.innerWidth > 768 : true);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
   const fullText = 'Data Scientist & AI Engineer';
 

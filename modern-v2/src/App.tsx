@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Terminal, Globe, Cpu, Database, ChevronRight, Award, BookOpen, Briefcase, Code2, Layers } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Terminal, Globe, Cpu, Database, ChevronRight, Award, BookOpen, Briefcase, Code2, Layers, Menu, X } from 'lucide-react';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('hero');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +37,9 @@ const App = () => {
       <nav className="nav-brand">
         <div className="nav-content">
           <a href="#hero" className="nav-logo">NMN PANDEY</a>
-          <div className="nav-links">
+
+          {/* Desktop Links */}
+          <div className="nav-links desktop-only">
             {['about', 'skills', 'experience', 'projects', 'contact'].map((item) => (
               <a
                 key={item}
@@ -47,10 +50,53 @@ const App = () => {
               </a>
             ))}
           </div>
-          <a href="mailto:namanp95@gmail.com" className="btn-primary" style={{ padding: '0.6rem 1.2rem', fontSize: '0.8rem' }}>
-            GET IN TOUCH
-          </a>
+
+          <div className="nav-actions">
+            <a href="mailto:namanp95@gmail.com" className="btn-primary desktop-only" style={{ padding: '0.6rem 1.2rem', fontSize: '0.8rem' }}>
+              GET IN TOUCH
+            </a>
+
+            {/* Mobile Menu Toggle */}
+            <button
+              className="mobile-menu-toggle"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              className="mobile-menu-overlay"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+            >
+              <div className="mobile-menu-links">
+                {['about', 'skills', 'experience', 'projects', 'contact'].map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item}`}
+                    className={`mobile-nav-link ${activeSection === item ? 'active' : ''}`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.toUpperCase()}
+                  </a>
+                ))}
+                <a
+                  href="mailto:namanp95@gmail.com"
+                  className="btn-primary"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  GET IN TOUCH
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       <main className="container">

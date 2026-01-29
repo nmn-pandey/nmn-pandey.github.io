@@ -35,7 +35,7 @@ const App = () => {
       {/* Navigation */}
       <nav className="nav-brand">
         <div className="nav-content">
-          <a href="#hero" className="nav-logo">NAMAN PANDEY</a>
+          <a href="#hero" className="nav-logo">NMN PANDEY</a>
           <div className="nav-links">
             {['about', 'skills', 'experience', 'projects', 'contact'].map((item) => (
               <a

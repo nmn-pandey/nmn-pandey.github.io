@@ -898,15 +898,37 @@ function App() {
                 <div className="glass rounded-3xl p-8 md:p-10">
                   <form
                     className="space-y-8"
-                    onSubmit={(e) => {
+                    onSubmit={async (e) => {
                       e.preventDefault();
-                      toast.success('Message sent successfully!');
+                      const formData = new FormData(e.currentTarget);
+
+                      try {
+                        const response = await fetch('https://api.web3forms.com/submit', {
+                          method: 'POST',
+                          body: formData
+                        });
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                          toast.success('Message sent successfully!');
+                          (e.target as HTMLFormElement).reset();
+                        } else {
+                          toast.error('Something went wrong. Please try again.');
+                        }
+                      } catch (error) {
+                        toast.error('Failed to send message. Please check your connection.');
+                      }
                     }}
                   >
+                    <input type="hidden" name="access_key" value="5aebb5ee-5e4c-441a-9731-dbda0921ab2c" />
+                    <input type="hidden" name="subject" value="New Contact Form Submission" />
+
                     <div className="space-y-2">
                       <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60">Your Name</label>
                       <input
                         type="text"
+                        name="name"
                         className="w-full bg-transparent border-b border-border/50 py-4 focus:border-primary focus:outline-none transition-colors text-xl font-medium"
                         placeholder="John Doe"
                         required
@@ -917,6 +939,7 @@ function App() {
                       <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60">Your Email</label>
                       <input
                         type="email"
+                        name="email"
                         className="w-full bg-transparent border-b border-border/50 py-4 focus:border-primary focus:outline-none transition-colors text-xl font-medium"
                         placeholder="john@example.com"
                         required
@@ -926,6 +949,7 @@ function App() {
                     <div className="space-y-2">
                       <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60">Message</label>
                       <textarea
+                        name="message"
                         rows={1}
                         className="w-full bg-transparent border-b border-border/50 py-4 focus:border-primary focus:outline-none transition-colors text-xl font-medium resize-none overflow-hidden"
                         placeholder="Tell me about your project"

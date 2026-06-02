@@ -1,3 +1,4 @@
+import { useRef, type FormEvent } from "react"
 import { motion } from "motion/react"
 import { Mail, Phone, Linkedin, Github, BookOpen } from "lucide-react"
 import GlowingCard from "./GlowingCard"
@@ -5,6 +6,32 @@ import GlowingButton from "./GlowingButton"
 import SectionHeader from "./SectionHeader"
 
 export default function Contact() {
+  const formRef = useRef<HTMLFormElement>(null)
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    formData.append("access_key", "5aebb5ee-5e4c-441a-9731-dbda0921ab2c")
+    formData.append("subject", "New Contact Form Submission")
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      })
+      const data = await res.json()
+      if (data.success) {
+        alert("Message sent successfully!")
+        form.reset()
+      } else {
+        alert("Something went wrong. Please try again.")
+      }
+    } catch {
+      alert("Failed to send message. Please check your connection.")
+    }
+  }
+
   return (
     <section id="contact" className="py-24">
       <SectionHeader
@@ -87,29 +114,32 @@ export default function Contact() {
         </motion.div>
 
         <GlowingCard gradient="linear-gradient(137deg, #4361EE 0%, #E0AEFF 45%, #F72585 100%)">
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="space-y-6"
-          >
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
             <div>
               <input
                 type="text"
+                name="name"
                 placeholder="Your Name"
                 className="w-full bg-transparent border-b border-white/10 focus:border-[#7DD3FC] outline-none py-3 text-white text-sm placeholder:text-muted/50 transition-colors"
+                required
               />
             </div>
             <div>
               <input
                 type="email"
+                name="email"
                 placeholder="Your Email"
                 className="w-full bg-transparent border-b border-white/10 focus:border-[#7DD3FC] outline-none py-3 text-white text-sm placeholder:text-muted/50 transition-colors"
+                required
               />
             </div>
             <div>
               <textarea
+                name="message"
                 rows={4}
                 placeholder="Your Message"
                 className="w-full bg-transparent border-b border-white/10 focus:border-[#7DD3FC] outline-none py-3 text-white text-sm placeholder:text-muted/50 transition-colors resize-none"
+                required
               />
             </div>
             <GlowingButton variant="primary">Send Message</GlowingButton>

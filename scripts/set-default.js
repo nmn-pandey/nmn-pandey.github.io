@@ -1,5 +1,4 @@
 import { existsSync, cpSync, readdirSync, rmSync, writeFileSync } from 'fs'
-import { execSync } from 'child_process'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
@@ -19,13 +18,6 @@ if (!existsSync(distPath)) {
   process.exit(1)
 }
 
-if (version === 'v1') {
-  console.log('Rebuilding root app for v1...')
-  execSync('npm run build', { cwd: root, stdio: 'inherit' })
-  console.log('Default set to v1 (original). Run "npm run deploy" to publish.')
-  process.exit(0)
-}
-
 const versionDir = join(distPath, version)
 
 if (!existsSync(versionDir)) {
@@ -33,7 +25,7 @@ if (!existsSync(versionDir)) {
   process.exit(1)
 }
 
-const versionDirectories = new Set(['v2', 'v3', 'v4', 'v6'])
+const versionDirectories = new Set(['v1', 'v2', 'v3', 'v4', 'v6'])
 
 for (const entry of readdirSync(distPath)) {
   if (!versionDirectories.has(entry)) {

@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build && cd modern-v2 && npm install && npm run build && cd .. && mkdir -p dist/v2 && cp -r modern-v2/dist/* dist/v2/ && cd revamp-v3 && npm install && npm run build && cd .. && mkdir -p dist/v3 && cp -r revamp-v3/dist/* dist/v3/ && cd revamp-v4 && npm install && npm run build && cd .. && mkdir -p dist/v4 && cp -r revamp-v4/dist/* dist/v4/ && cd modern-v6 && npm ci && npm run build && cd .. && mkdir -p dist/v6 && cp -R modern-v6/dist/. dist/v6/ && touch dist/.nojekyll && node scripts/set-default.js v6",
+    "predeploy": "npm run build && node scripts/preserve-v1.js && cd modern-v2 && npm install && npm run build && cd .. && mkdir -p dist/v2 && cp -r modern-v2/dist/* dist/v2/ && cd revamp-v3 && npm install && npm run build && cd .. && mkdir -p dist/v3 && cp -r revamp-v3/dist/* dist/v3/ && cd revamp-v4 && npm install && npm run build && cd .. && mkdir -p dist/v4 && cp -r revamp-v4/dist/* dist/v4/ && cd modern-v6 && npm ci && npm run build && cd .. && mkdir -p dist/v6 && cp -R modern-v6/dist/. dist/v6/ && touch dist/.nojekyll && node scripts/set-default.js v6",
     "deploy": "gh-pages -d dist --dotfiles",
     "set-default": "node scripts/set-default.js"
   },

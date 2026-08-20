@@ -1,4 +1,4 @@
-import { existsSync, unlinkSync, cpSync, rmSync } from 'fs'
+import { existsSync, cpSync, readdirSync, rmSync, writeFileSync } from 'fs'
 import { execSync } from 'child_process'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
@@ -6,8 +6,8 @@ import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const version = process.argv[2]
 
-if (!version || !['v1', 'v2', 'v3', 'v4'].includes(version)) {
-  console.error('Usage: node scripts/set-default.js <v1|v2|v3|v4>')
+if (!version || !['v1', 'v2', 'v3', 'v4', 'v6'].includes(version)) {
+  console.error('Usage: node scripts/set-default.js <v1|v2|v3|v4|v6>')
   process.exit(1)
 }
 
@@ -33,13 +33,18 @@ if (!existsSync(versionDir)) {
   process.exit(1)
 }
 
-const rootIndex = join(distPath, 'index.html')
-if (existsSync(rootIndex)) unlinkSync(rootIndex)
+const versionDirectories = new Set(['v2', 'v3', 'v4', 'v6'])
 
-const rootAssets = join(distPath, 'assets')
-if (existsSync(rootAssets)) rmSync(rootAssets, { recursive: true, force: true })
+for (const entry of readdirSync(distPath)) {
+  if (!versionDirectories.has(entry)) {
+    rmSync(join(distPath, entry), { recursive: true, force: true })
+  }
+}
 
-cpSync(join(versionDir, 'index.html'), join(distPath, 'index.html'))
-cpSync(join(versionDir, 'assets'), join(distPath, 'assets'), { recursive: true })
+for (const entry of readdirSync(versionDir)) {
+  cpSync(join(versionDir, entry), join(distPath, entry), { recursive: true })
+}
+
+writeFileSync(join(distPath, '.nojekyll'), '')
 
 console.log(`Default set to ${version}. Run "npm run deploy" to publish.`)

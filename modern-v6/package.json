@@ -1,0 +1,14 @@
+{
+  "name": "portfolio-v6",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "rm -rf dist && mkdir -p dist/images/portfolio dist/icons && cp index.html animation.js nav-guard.js portfolio-overrides.css favicon-q29c30b0e16.ico Naman-Pandey-CV.pdf dist/ && cp -R _next dist/ && cp images/noise.png dist/images/ && cp images/portfolio/*-art.jpg dist/images/portfolio/ && cp icons/arrow_right.svg dist/icons/ && echo 'Build complete'",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.1.0"
+  }
+}

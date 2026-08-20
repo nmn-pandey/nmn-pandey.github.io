@@ -1083,6 +1083,7 @@
         gsap.to(image, { opacity: i === index ? 1 : 0, filter: i === index ? 'blur(0px)' : 'blur(14px)', scale: i === index ? 1 : 1.035, duration: immediate ? 0 : 1.4, ease: 'power3.out' });
       });
       copies.forEach(function (copy, i) {
+        copy.classList.toggle('is-active', i === index);
         gsap.to(copy, { opacity: i === index ? 1 : 0, filter: i === index ? 'blur(0px)' : 'blur(10px)', visibility: i === index ? 'visible' : 'hidden', duration: immediate ? 0 : 1.1, ease: 'power3.out' });
       });
       serviceLists.forEach(function (list, i) {

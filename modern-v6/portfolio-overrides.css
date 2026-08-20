@@ -418,6 +418,13 @@ body > div[style*="width:100vw"] {
   display: block;
   color: inherit;
   text-decoration: none;
+  pointer-events: none !important;
+  position: relative;
+  z-index: 3;
+}
+
+.portfolio-showcase-source .Showcase_showcase_names_name__FCuyU.is-active > a {
+  pointer-events: auto !important;
 }
 
 .portfolio-showcase-source .Showcase_showcase_names_name__FCuyU > .line,

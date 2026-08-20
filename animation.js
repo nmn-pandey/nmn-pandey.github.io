@@ -187,11 +187,43 @@
       if (descriptorLine) descriptorLine.textContent = 'data — driven';
       if (titleLine) titleLine.textContent = 'AI Engineer';
       var featuredWordsContainer = $('.Hero_hero_content_title_featuredWordsContainer__mOQxb', hero);
-      if (featuredWordsContainer && !$('.portfolio-hero-for', featuredWordsContainer)) {
-        var forLabel = document.createElement('small');
-        forLabel.className = 'portfolio-hero-for';
-        forLabel.textContent = 'for';
-        featuredWordsContainer.insertBefore(forLabel, featuredWordsContainer.firstChild);
+      if (featuredWordsContainer) {
+        var forLabel = $('.portfolio-hero-for', featuredWordsContainer);
+        if (!forLabel) {
+          forLabel = document.createElement('small');
+          forLabel.className = 'portfolio-hero-for';
+          forLabel.textContent = 'for';
+        }
+
+        var originalMediaBox = $('.js-hero_content_title_mediaBox', hero);
+        var motionBox = originalMediaBox;
+        if (originalMediaBox && originalMediaBox.tagName === 'BUTTON') {
+          motionBox = document.createElement('span');
+          motionBox.className = originalMediaBox.className;
+          originalMediaBox.replaceWith(motionBox);
+        }
+        if (motionBox) {
+          motionBox.classList.add('portfolio-hero-motion');
+          motionBox.setAttribute('aria-hidden', 'true');
+          var motionVideo = $('video', motionBox);
+          if (!motionVideo) {
+            motionVideo = document.createElement('video');
+            motionVideo.src = 'images/hero-ai-motion.mp4';
+            motionVideo.autoplay = true;
+            motionVideo.muted = true;
+            motionVideo.defaultMuted = true;
+            motionVideo.loop = true;
+            motionVideo.playsInline = true;
+            motionVideo.preload = 'metadata';
+            motionVideo.disablePictureInPicture = true;
+            motionVideo.setAttribute('muted', '');
+            motionBox.appendChild(motionVideo);
+          }
+          featuredWordsContainer.insertBefore(motionBox, featuredWordsContainer.firstChild);
+          featuredWordsContainer.insertBefore(forLabel, motionBox.nextSibling);
+        } else {
+          featuredWordsContainer.insertBefore(forLabel, featuredWordsContainer.firstChild);
+        }
       }
       var heroWords = $$('.Hero_hero_content_title_featuredWords__0Rd4E > span', hero);
       ['SYSTEMS', 'RESEARCH', 'PRODUCTS', 'IMPACT'].forEach(function (word, i) {
@@ -744,7 +776,7 @@
    * ========================================================= */
   var SHOWCASE = [
     {
-      title: 'BraTS 3D Swin-UNet',
+      title: 'Enhancing Brain Tumour Segmentation using Transformers',
       services: ['3D Swin-UNet', 'Volumetric MRI', 'MONAI', 'PyTorch'],
       img: 'images/portfolio/project-brats-art.jpg',
       thumb: 'images/portfolio/project-brats-art.jpg',
@@ -955,7 +987,7 @@
     if (mobileEl) mobileEl.style.display = 'none';
 
     var titleLines = [
-      ['BraTS 3D', 'Swin-UNet'],
+      ['Enhancing Brain', 'Tumour Segmentation', 'using Transformers'],
       ['Missing Money', 'Matters'],
       ['Dialogue', 'Insights AI'],
       ['Vastra', 'Fashion AI'],
